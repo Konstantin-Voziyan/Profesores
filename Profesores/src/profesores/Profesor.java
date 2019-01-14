@@ -5,7 +5,7 @@ import static java.lang.System.out;
 
 public class Profesor {
 
-    static int contador = 1;
+    static int contador = 0;
     static String curso;
     static double pagoHoraExtra;
     private String dni;
@@ -99,7 +99,7 @@ public class Profesor {
 
     public void leerProfesores(int n) {
 
-       out.println("Numero del profesor: " + n); 
+       out.println("\nNumero del profesor: " + n); 
        
        Scanner sc = new Scanner (System.in);
        out.print("Nombre: ");
