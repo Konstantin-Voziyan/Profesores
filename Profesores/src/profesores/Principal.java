@@ -4,6 +4,9 @@ import java.util.*;
 import static java.lang.System.out;
 
 class Principal {
+    
+    static String red = "\033[31m";
+    static String black = "\033[30m";
 
     public static void main(String[] args) {
 
@@ -35,11 +38,55 @@ class Principal {
                 Profesor p = new Profesor();
                 p.leerProfesores(Profesor.contador);
                 lista = altaProfesor(lista, p);
-            } else if (opcion == 2) {
+            } 
+            
+            else if (opcion == 2) {
                 out.print("Introduzca el número del profesor para dar de baja: ");
                 int numero = sc.nextInt();
                 lista = bajaProfesor(lista, numero);
+            } 
+            
+            else if (opcion == 3){
+                out.print("Introduzca el número del profesor para consultar los datos: ");
+                int n = sc.nextInt();
+                lista[n].ImprimeProfesor(n);
+            } 
+            
+            else if (opcion == 4){
+                int mes, numero, horas;
+                out.print("Introduzca el número del profesor: ");
+                numero = sc.nextInt();
+                out.print("Introduzca el mes: ");
+                mes = sc.nextInt();
+                out.print("Introduzca las horas extras realizadas: ");
+                horas = sc.nextInt();
+                lista[numero].setHorasExtra(mes, horas);
+            } 
+            
+            else if (opcion == 5){
+                for (int i = 0; i < lista.length; i++){
+                    out.println();
+                    out.println("Numero: " + (i+1));
+                    out.println("Nombre: " + lista[i].getNombre());
+                    out.println("DNI: " + lista[i].getDni());
+                    out.println("Sueldo Base: " + lista[i].getSueldoBase());
+                    out.println("Tipo IRPF: " + lista[i].getTipoIRPF());
+                }
+            } else if (opcion == 6){
+                int mes;
+                out.print("Introduzca un mes ara ver todas las nominas: ");
+                mes = sc.nextInt();
                 
+                out.println();
+                for (int i = 0; i < lista.length; i++){
+                    lista[0].ImprimirNominas(mes, (i+1));
+                    out.println();
+                }
+                
+            } else if (opcion != 0 && opcion != 1 && opcion != 2 && opcion != 3 && opcion != 4 && opcion != 5 && opcion != 6){
+                out.println();
+                out.println( red + "La opción intrudcida es incorrecta, vuela a intentarlo" + black);
+                out.println();
             }
 
         } while (opcion != 0);

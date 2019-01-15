@@ -91,7 +91,7 @@ public class Profesor {
     }
 
     public void ImprimeProfesor(int n) {
-        out.println("Nombre: " + this.getNombre());
+        out.println("\nNombre: " + this.getNombre());
         out.println("DNI: " + this.getDni());
         out.println("Sueldo base: " + this.getSueldoBase());
         out.println("Tipo IRPF: " + this.getTipoIRPF());
